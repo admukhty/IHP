@@ -2,7 +2,7 @@
 from __future__ import division, unicode_literals
 
 import argparse
-import cPickle as pickle
+import _pickle as pickle
 import codecs
 import logging
 import sys
@@ -88,6 +88,8 @@ def load_corpus(goldstd, corpus_path, corpus_format, corenlp_client):
     elif corpus_format == "hpo":            ##########
         corpus = HPOCorpus(corpus_path)     ##########
         corpus.load_corpus(corenlp_client)  ##########
+        print("Aditi corpus loaded")
+        print(corpus)
     elif corpus_format == "tsuite":            ##########
         corpus = SuiteCorpus(corpus_path)     ##########
         corpus.load_corpus(corenlp_client)  ##########
@@ -144,7 +146,7 @@ considered when coadministering with megestrol acetate.''',
     # pre-processing options
     if options.actions == "load_corpus":
         if len(options.goldstd) > 1:
-            print "load only one corpus each time"
+            print("load only one corpus each time")
             sys.exit()
         options.goldstd = options.goldstd[0]
         corpus_format = config.paths[options.goldstd]["format"]
@@ -160,7 +162,7 @@ considered when coadministering with megestrol acetate.''',
 
     elif options.actions == "annotate": # rext-add annotation to corpus
         if len(options.goldstd) > 1:
-            print "load only one corpus each time"
+            print("load only one corpus each time")
             sys.exit()
         options.goldstd = options.goldstd[0]
         corpus_path = config.paths[options.goldstd]["corpus"]

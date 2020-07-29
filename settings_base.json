@@ -19,10 +19,10 @@
   "host_ip": "127.0.0.1",
   "geniass_path": "./bin/geniass",
   "florchebi_path": "./bin",
-  "corenlp_dir": "bin/stanford-corenlp-full-2015-12-09/",
-  "stanford_ner_dir": "bin/stanford-ner-2015-04-20/",
+  "corenlp_dir": "C:\Users\admukhty\AppData\Local\Programs\Python\Python38-32\hackathon\IHP\bin\stanford-corenlp-full-2015-12-09",
+  "stanford_ner_dir": "C:\Users\admukhty\AppData\Local\Programs\Python\Python38-32\hackathon\IHP\bin\stanford-ner-2015-04-20",
   "stanford_ner_train_ram": "-Xmx8g",
-  "stanford_ner_test_ram": "-Xmx4g",
+  "stanford_ner_test_ram": "-Xmx1g",
   "stoplist": "data/stopwords.txt",
   "termlist_dir": "data/lists"
 }

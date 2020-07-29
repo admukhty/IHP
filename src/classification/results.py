@@ -101,11 +101,12 @@ class ResultsNER(object):
 
     def load_corpus(self, goldstd):
         logging.info("loading corpus %s" % config.paths[goldstd]["corpus"])
-        corpus = pickle.load(open(config.paths[goldstd]["corpus"]))
+        corpus = pickle.load(open(config.paths[goldstd]["corpus"], "rb"))
 
         for did in corpus.documents:
             for sentence in corpus.documents[did].sentences:
                 sentence.entities = self.corpus[did][sentence.sid]
+                print(sentence.sid + did)
                 #for entity in sentence.entities.elist[options.models]:
                 #    print entity.chebi_score,
 
@@ -163,7 +164,7 @@ def combine_results(modelname, results, resultsname, etype, models):
     # first results are used as reference
     all_results.corpus = results[0].corpus
     for r in results:
-        print r.path
+        print(r.path)
         for did in r.corpus.documents:
             for sentence in r.corpus.documents[did].sentences:
                 ref_sentence = all_results.corpus.documents[did].get_sentence(sentence.sid)
@@ -226,7 +227,7 @@ def main():
             results.load_corpus(options.goldstd)
             results_list.append(results)
         else:
-            print "results not found"
+            print("results not found")
 
     if options.action == "combine":
         # add another set of annotations to each sentence, ending in combined
